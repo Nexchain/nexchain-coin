@@ -28,7 +28,7 @@ contract NexchainCoinTest is Test {
 
     function testOpenBurnRevertsIfNotOwner() public {
         vm.startPrank(user);
-        vm.expectRevert();  // Ownable reverts with a standard message
+        vm.expectRevert(); // Ownable reverts with a standard message
         coin.openBurn(100 ether);
         vm.stopPrank();
     }
@@ -81,7 +81,7 @@ contract NexchainCoinTest is Test {
 
         vm.startPrank(owner);
         coin.openBurn(amount);
-        
+
         // Move forward the required number of blocks
         vm.roll(block.number + 18000);
 
@@ -98,11 +98,11 @@ contract NexchainCoinTest is Test {
     // New test for ERC20Votes functionality
     function testVotingPowerTransfer() public {
         vm.startPrank(owner);
-        
+
         uint256 ownerVotesBefore = coin.getVotes(owner);
         coin.delegate(owner); // Self-delegate to activate voting power
         uint256 ownerVotesAfter = coin.getVotes(owner);
-        
+
         assertEq(ownerVotesAfter - ownerVotesBefore, coin.balanceOf(owner));
         vm.stopPrank();
     }
