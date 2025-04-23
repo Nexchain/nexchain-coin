@@ -55,7 +55,12 @@ $ anvil
 ### Deploy
 
 ```shell
-$ forge script script/NexchainCoin.s.sol:NexchainCoinScript --private-key <your_private_key>
+$ forge script script/NexchainCoin.s.sol:NexchainCoinScript \
+  --rpc-url https://eth-mainnet.g.alchemy.com/v2/<your_alchemy_project_id> \
+  --private-key <your_private_key> \
+  --broadcast \
+  --verify \
+  --etherscan-api-key <your_etherscan_api_key>
 ```
 
 ### Cast
